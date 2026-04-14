@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Outlet, redirect } from "react-router";
+import { createBrowserRouter, RouterProvider, redirect } from "react-router";
 import "./App.css";
 import axios from "axios";
 import { useEffect } from "react";
@@ -13,60 +13,28 @@ import { loader as editVideoLoader, action as editVideoAction} from "./pages/Vid
 import { loader as playlistLoader} from "./pages/Playlists/ViewAll";
 import { loader as signInLoader} from "./pages/Auth/SignInWithGoogle";
 
-// Lazy loaded components
-const DefaultLayout = {
-  lazy: async () => {
-    const module = await import("./pages/DefaultLayout");
-    return module;
-  }
-};
-
-const Home = {
-  lazy: async () => {
-    const module = await import("./pages/Home");
-    return module;
-  }
-};
-
-const ViewAllPlaylists = {
-  lazy: async () => {
-    const module = await import("./pages/Playlists/ViewAll");
-    return module;
-  }
-};
-
-const AllVideos = {
-  lazy: async () => {
-    const module = await import("./pages/Videos/AllVideos");
-    return module;
-  }
-};
-
-const EditVideo = {
-  lazy: async () => {
-    const module = await import("./pages/Videos/Edit");
-    return module;
-  }
-};
-
-const Play = {
-  lazy: async () => {
-    const module = await import("./pages/Playlists/Play");
-    return module;
-  }
-};
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 const router = createBrowserRouter([
   {
     path:"/",
     id:"root",
-    ...DefaultLayout,
+    lazy: async () => {
+      const module = await import("./pages/DefaultLayout");
+      return { Component: module.DefaultLayout ?? module.default };
+    },
     loader:async ()=>{
       const token = await supabase.auth.getUser();
       return token.data.user
     },
     children: [
-      { index: true, ...Home },
+      {
+        index: true,
+        lazy: async () => {
+          const module = await import("./pages/Home");
+          return { Component: module.default };
+        },
+      },
       {path:"login",loader:signInLoader},
       {path:"logout",loader:async ()=>{
         await supabase.auth.signOut();
@@ -75,21 +43,49 @@ const router = createBrowserRouter([
       {
         path: "playlist",
         children: [
-          { index: true, ...ViewAllPlaylists, loader: playlistLoader},
+          {
+            index: true,
+            lazy: async () => {
+              const module = await import("./pages/Playlists/ViewAll");
+              return { Component: module.default };
+            },
+            loader: playlistLoader,
+          },
           { path: ":id", element: <h1>View Specific Playlist</h1> },
           { path: "create/:id", element: <h1>Create new playlist</h1> },
           { path: "edit/:id", element: <h1>Edit specific playlist</h1> },
           { path: "delete/:id", element: <h1>Delete specific playlist</h1> },
-          { path: "watch/:id", ...Play},
+          {
+            path: "watch/:id",
+            lazy: async () => {
+              const module = await import("./pages/Playlists/Play");
+              return { Component: module.default };
+            },
+          },
         ],
       },
       {
         path: "video",
         children: [
-          { index: true, ...AllVideos, loader: videoLoader},
+          {
+            index: true,
+            lazy: async () => {
+              const module = await import("./pages/Videos/AllVideos");
+              return { Component: module.default };
+            },
+            loader: videoLoader,
+          },
           { path: ":id", element: <h1>View Specific Video</h1> },
           { path: "create/:id", element: <h1>Create new Video</h1> },
-          { path: "edit/:id", ...EditVideo, loader:editVideoLoader, action: editVideoAction},
+          {
+            path: "edit/:id",
+            lazy: async () => {
+              const module = await import("./pages/Videos/Edit");
+              return { Component: module.default };
+            },
+            loader:editVideoLoader,
+            action: editVideoAction
+          },
           { path: "delete/:id", loader: async ({params})=>{
             try{
               await axios.delete(API_URL + "/videos/"+params.id);
