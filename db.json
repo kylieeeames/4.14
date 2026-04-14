@@ -1,0 +1,128 @@
+{
+  "playlists": [
+    {
+      "id": "1",
+      "title": "Git and GitHub for Beginners",
+      "description": "A comprehensive playlist covering the basics of Git and GitHub, including installation, configuration, and common workflows."
+    },
+    {
+      "id": "2",
+      "title": "Advanced Git and GitHub",
+      "description": "A playlist focused on advanced Git and GitHub topics, such as branching strategies, merge conflicts, and GitHub Pages."
+    },
+    {
+      "id": "3",
+      "title": "GitHub for Collaboration",
+      "description": "A playlist dedicated to using GitHub for collaboration, including creating repositories, adding collaborators, and managing pull requests."
+    },
+    {
+      "id": "4",
+      "title": "GitHub Workflow",
+      "description": "A playlist that explains the GitHub workflow, including creating branches, committing code, and merging pull requests."
+    }
+  ],
+  "videos": [
+    {
+      "id": "1",
+      "title": "Visual Explanation: Why We Need Git",
+      "youtubeUrl": "https://www.youtube.com/embed/9v9PsTf11rk",
+      "playlistId": "1"
+    },
+    {
+      "id": "2",
+      "title": "What is Git?",
+      "youtubeUrl": "https://www.youtube.com/embed/wfY0nCY1_fc"
+    },
+    {
+      "id": "3",
+      "title": "What is GitHub?",
+      "youtubeUrl": "https://www.youtube.com/embed/rVhcFmxfmoQ"
+    },
+    {
+      "id": "4",
+      "title": "Installing Git (Windows)",
+      "youtubeUrl": "https://www.youtube.com/embed/xpr6I0tTiB8"
+    },
+    {
+      "id": "5",
+      "title": "Git Configuration Options (Windows)",
+      "youtubeUrl": "https://www.youtube.com/embed/MoUiKSifWS0"
+    },
+    {
+      "id": "6",
+      "title": "Installing Git (Mac)",
+      "youtubeUrl": "https://www.youtube.com/embed/cG5kNAIZtr0"
+    },
+    {
+      "id": "7",
+      "title": "Installing GitHub Desktop (Windows)",
+      "youtubeUrl": "https://www.youtube.com/embed/QGLv48wexhc"
+    },
+    {
+      "id": "8",
+      "title": "Installing GitHub Desktop (Mac)",
+      "youtubeUrl": "https://www.youtube.com/embed/6_3un53C_4Y"
+    },
+    {
+      "id": "9",
+      "title": "Logging in to GitHub Desktop",
+      "youtubeUrl": "https://www.youtube.com/embed/qK8dmw52x_Y"
+    },
+    {
+      "id": "10",
+      "title": "Creating a GitHub Repository",
+      "youtubeUrl": "https://www.youtube.com/embed/GQbLaCEd8KI"
+    },
+    {
+      "id": "11",
+      "title": "Adding Collaborators on GitHub",
+      "youtubeUrl": "https://www.youtube.com/embed/DELiEV72f4I"
+    },
+    {
+      "id": "12",
+      "title": "Accepting a Collaboration Invite on GitHub",
+      "youtubeUrl": "https://www.youtube.com/embed/QiRY7UmCvGs"
+    },
+    {
+      "id": "13",
+      "title": "Cloning a GitHub Repository",
+      "youtubeUrl": "https://www.youtube.com/embed/yOhWhA7nLWU"
+    },
+    {
+      "id": "14",
+      "title": "Creating Your Own Branch",
+      "youtubeUrl": "https://www.youtube.com/embed/YXCvDr936js"
+    },
+    {
+      "id": "15",
+      "title": "Committing Your Code",
+      "youtubeUrl": "https://www.youtube.com/embed/1pMeJnY9zPQ"
+    },
+    {
+      "id": "16",
+      "title": "Creating a Pull Request",
+      "youtubeUrl": "https://www.youtube.com/embed/b-ZIfiCAM1s"
+    },
+    {
+      "id": "17",
+      "title": "Merging a Pull Request",
+      "youtubeUrl": "https://www.youtube.com/embed/9b-wTzzeq0o"
+    },
+    {
+      "id": "18",
+      "title": "Deleting a Branch and GitHub Flow",
+      "youtubeUrl": "https://www.youtube.com/embed/MOFtdS6wTYo"
+    },
+    {
+      "id": "19",
+      "title": "Handling Merge Conflicts on GitHub",
+      "youtubeUrl": "https://www.youtube.com/embed/q2mgZS30l0k"
+    },
+    {
+      "id": "20",
+      "title": "GitHub Pages",
+      "youtubeUrl": "https://www.youtube.com/embed/YDf2zs4vI1k"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

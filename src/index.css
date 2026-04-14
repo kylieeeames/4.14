@@ -1,0 +1,220 @@
+:root {
+  --text: #1f2937;
+  --text-h: #111827;
+  --bg: #f9fafb;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --accent: #3b82f6;
+  --accent-dark: #1d4ed8;
+  --accent-light: #dbeafe;
+  --accent-bg: rgba(59, 130, 246, 0.1);
+  --accent-border: rgba(59, 130, 246, 0.5);
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #f59e0b;
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow: rgba(0, 0, 0, 0.08) 0 10px 15px -3px, rgba(0, 0, 0, 0.04) 0 4px 6px -2px;
+  --shadow-lg: rgba(0, 0, 0, 0.12) 0 20px 25px -5px, rgba(0, 0, 0, 0.06) 0 10px 10px -5px;
+
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --mono: 'Fira Code', 'Courier New', monospace;
+
+  font: 15px/160% var(--sans);
+  letter-spacing: 0.15px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e5e7eb;
+    --text-h: #f9fafb;
+    --bg: #111827;
+    --border: #374151;
+    --code-bg: #1f2937;
+    --accent: #60a5fa;
+    --accent-dark: #93c5fd;
+    --accent-light: #1e3a8a;
+    --accent-bg: rgba(96, 165, 250, 0.15);
+    --accent-border: rgba(96, 165, 250, 0.5);
+    --success: #34d399;
+    --error: #f87171;
+    --warning: #fbbf24;
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    --shadow-lg: rgba(0, 0, 0, 0.5) 0 20px 25px -5px, rgba(0, 0, 0, 0.35) 0 10px 10px -5px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Utility classes */
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 0.3s ease;
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.3s ease;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--code-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dark);
+}
+
+/* Selection Styling */
+::selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--accent);
+  color: white;
+}
